@@ -1,0 +1,4 @@
+<layers>
+    <layer name="collective.localrolesdatatbles"
+           interface="collective.localrolesdatatbles.browser.interfaces.ILayer" />
+</layers>
