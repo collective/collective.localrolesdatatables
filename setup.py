@@ -3,9 +3,9 @@ import os
 
 version = '1.0'
 
-setup(name='collective.localrolesdatatbles',
+setup(name='collective.localrolesdatatables',
       version=version,
-      description="Addon to display all localroles in a datatables",
+      description="Addon for Plone",
       long_description=open("README.rst").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from

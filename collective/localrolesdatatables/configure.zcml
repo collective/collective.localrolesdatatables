@@ -6,13 +6,13 @@
     xmlns:i18n="http://namespaces.zope.org/i18n"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     xmlns:plone="http://namespaces.plone.org/plone"
-    i18n_domain="collective.localrolesdatatbles">
+    i18n_domain="collective.localrolesdatatables">
 
   <i18n:registerTranslations directory="locales" />
 
   <genericsetup:registerProfile
       name="default"
-      title="collective.localrolesdatatbles"
+      title="collective.localrolesdatatables"
       directory="profiles/default"
       description='Extension profile'
       provides="Products.GenericSetup.interfaces.EXTENSION"
@@ -21,7 +21,7 @@
 
   <browser:page
       for="*"
-      name="localroles-data"
+      name="localrolesdatatables_view"
       class=".localroles_view.LocalRolesView"
       permission="zope2.View"
       />

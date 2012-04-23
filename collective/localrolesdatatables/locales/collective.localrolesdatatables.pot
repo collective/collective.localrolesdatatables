@@ -1,7 +1,7 @@
-# Gettext Message File for collective.localrolesdatatbles
+# Gettext Message File for collective.localrolesdatatables
 msgid ""
 msgstr ""
-"Project-Id-Version: collective.localrolesdatatbles\n"
+"Project-Id-Version: collective.localrolesdatatables\n"
 "POT-Creation-Date: 2010-11-10 11:05+0000\n"
 "PO-Revision-Date: 2008-02-04 18:00+0000\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
@@ -13,4 +13,4 @@ msgstr ""
 "Language-Code: en\n"
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: collective.localrolesdatatbles\n"
+"Domain: collective.localrolesdatatables\n"

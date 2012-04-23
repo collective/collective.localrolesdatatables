@@ -1,5 +1,5 @@
 import unittest2 as unittest
-from collective.localrolesdatatbles.tests import base
+from collective.localrolesdatatables.tests import base
 
 class TestSetup(base.IntegrationTestCase):
     """We tests the setup (install) of the addons. You should check all

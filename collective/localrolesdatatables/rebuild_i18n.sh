@@ -1,5 +1,5 @@
 #!/bin/sh
-PRODUCTNAME='collective.localrolesdatatbles'
+PRODUCTNAME='collective.localrolesdatatables'
 I18NDOMAIN=$PRODUCTNAME
 
 # Synchronise the .pot with the templates.
