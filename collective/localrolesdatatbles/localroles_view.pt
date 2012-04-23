@@ -1,0 +1,73 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    lang="en"
+    metal:use-macro="here/main_template/macros/master"
+    i18n:domain="collective.googledocsviewer">
+<body>
+<div metal:fill-slot="content-core">
+
+
+<table id="localroles-datatables"
+       tal:define="item_role_settings view/role_settings;
+                   available_roles view/roles;">
+    <thead>
+        <tr>
+           <th>PATH</th>
+           <th>Name</th>
+           <th tal:repeat="role available_roles"><span tal:content="role/title">role</span></th>
+        </tr>
+    </thead>
+    <tbody>
+      <tal:items tal:repeat="item_url item_role_settings">
+        <tal:roles tal:repeat="entry python:item_role_settings[item_url]">
+          <tal:def tal:define="is_group python:entry['type'] == 'group';
+                               disabled entry/disabled | python:False;
+                               oddrow repeat/entry/odd;
+                               sticky python:entry['id'] in view.STICKY">
+        <tr>
+            <td tal:content="item_url">item_url</td>
+            <td>
+                            <img tal:condition="is_group" tal:replace="structure context/group.gif" />
+                            <img tal:condition="not:is_group" tal:replace="structure context/user.gif" />
+
+                            <tal:sticky condition="sticky">
+                              <span tal:replace="entry/title" />
+                            </tal:sticky>
+                            <tal:nonsticky condition="not:sticky">
+                              <span tal:replace="entry/title" />
+                              <tal:title condition="python:entry['title']!=entry['id']">
+                                (<span tal:replace="entry/id" />)
+                              </tal:title>
+                            </tal:nonsticky>
+            </td>
+            <td tal:repeat="role available_roles">
+                <tal:block define="entry_role python:entry['roles'][role['id']]">
+                    <img tal:condition="python:entry_role == 'global'" tal:replace="structure context/site_icon.gif" />
+                    <img tal:condition="python:entry_role == 'acquired'" tal:replace="structure context/confirm_icon.gif" />
+                    <tal:block condition="python:entry_role in (True, False)">
+                      <input class="noborder"
+                             type="checkbox"
+                             value="True"
+                             tal:attributes="name string:entries.role_${role/id}:records;
+                                             checked python:entry_role and 'checked' or None;
+                                             disabled python:disabled or None"
+                             />
+                    </tal:block>
+                </tal:block>
+              </td>
+        </tr>
+        </tal:def>
+        </tal:roles>
+        </tal:items>
+    </tbody>
+</table>
+<link rel="stylesheet" type="text/css" media="screen" href="++resource++jquery.datatables/media/css/jquery.dataTables.css">
+<script type="text/javascript" src="++resource++jquery.datatables.js"></script>
+<script type="text/javascript">
+$('#localroles-datatables').dataTable();
+</script>
+</div>
+</body>
+</html>

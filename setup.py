@@ -28,6 +28,7 @@ setup(name='collective.localrolesdatatbles',
       zip_safe=False,
       install_requires=[
           'setuptools',
+          'collective.js.datatables',
           # -*- Extra requirements: -*-
       ],
       extras_require = dict(
