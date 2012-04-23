@@ -14,11 +14,6 @@ class LocalRolesView(BrowserView):
 
     STICKY = STICKY
 
-    def __init__(self, context, request):
-        self.context = context
-        self.request = request
-        self.getLR = None
-
     def roles(self):
         """Return list of roles"""
         sharing_view = component.getMultiAdapter((self.context, self.request),
