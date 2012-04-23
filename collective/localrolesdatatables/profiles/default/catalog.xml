@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<object name="portal_catalog">
+ <index name="hasLocalRoles" meta_type="BooleanIndex">
+  <indexed_attr value="hasLocalRoles"/>
+ </index>
+</object>

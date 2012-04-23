@@ -21,9 +21,15 @@
 
   <browser:page
       for="*"
-      name="localrolesdatatables_view"
-      class=".localroles_view.LocalRolesView"
+      name="localrolesdatatables_catalog_view"
+      class=".localroles_view.CatalogLocalRolesView"
       permission="zope2.View"
       />
-
+  <browser:page
+      for="*"
+      name="localrolesdatatables_object_view"
+      class=".localroles_view.ObjectLocalRolesView"
+      permission="zope2.View"
+      />
+  <adapter factory=".localroles_view.hasLocalRoles"   name="hasLocalRoles" />
 </configure>
