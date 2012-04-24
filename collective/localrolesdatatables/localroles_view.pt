@@ -9,18 +9,13 @@
 
 <div metal:fill-slot="content-core">
 
-<p>User filtering: <input type="text" id="name-filtering" name="name-filtering"/></p>
-<p>Title filtering: <input type="text" id="title-filtering" name="title-filtering"/></p>
-
-
-
 <table id="localroles-datatables"
        tal:define="item_role_settings view/role_settings;
                    available_roles view/roles;">
     <thead>
         <tr>
-           <th>Title</th>
-           <th>Name</th>
+           <th>Title <input type="text" id="title-filtering" name="title-filtering"/></th>
+           <th>Name <input type="text" id="name-filtering" name="name-filtering"/></th>
            <th tal:repeat="role available_roles"><span tal:content="role/title">role</span></th>
         </tr>
     </thead>
@@ -63,16 +58,16 @@
 <script type="text/javascript" src="++resource++jquery.datatables.js"></script>
 <script type="text/javascript">
 var oTable = $('#localroles-datatables').dataTable({
-        "oLanguage": {
-            "sSearch": "Search all columns:"
-        }
+  "oLanguage": {"sSearch": "Search all columns:"},
+  "iDisplayLength": 100,
+  "aLengthMenu": [[100, 200, 500, -1],[100, 200, 500, "All"]]
 });
 $("#title-filtering").keyup( function () {
-        oTable.fnFilter( this.value, 0 );
-    } );
+  oTable.fnFilter( this.value, 0 );
+});
 $("#name-filtering").keyup( function () {
-        oTable.fnFilter( this.value, 1 );
-    } );
+  oTable.fnFilter( this.value, 1 );
+});
 </script>
 </div>
 </body>
