@@ -61,7 +61,10 @@ class CatalogLocalRolesView(BrowserView):
         t1 = time()
 
         results={}
-        query = {'Language':'all', 'hasLocalRoles':True}
+        context_path = '/'.join(self.context.getPhysicalPath())
+        query = {'Language':'all',
+                 'hasLocalRoles':True,
+                 'path': context_path}
         brains = self.catalog()(**query)
         logger.info(len(brains))
 
