@@ -2,7 +2,7 @@ import transaction
 import unittest2 as unittest
 from zope import interface
 from plone.app import testing
-from collective.localrolesdatatables import testing
+from collective.localrolesdatatables import testing as layer
 
 class UnitTestCase(unittest.TestCase):
 
