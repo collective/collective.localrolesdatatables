@@ -6,8 +6,9 @@ class TestSetup(base.IntegrationTestCase):
     stuff in profile are well activated (browserlayer, js, content types, ...)
     """
 
-    def test_xxx(self):
-        self.assertTrue(False)
+    def test_catalog(self):
+        catalog = self.portal.portal_catalog
+        self.assertTrue('hasLocalRoles' in catalog.indexes())
 
 def test_suite():
     return unittest.defaultTestLoader.loadTestsFromName(__name__)
