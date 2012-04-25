@@ -14,7 +14,7 @@ class IntegrationTestCase(unittest.TestCase):
     layer = layer.INTEGRATION
 
     def setUp(self):
-        super(TestCase, self).setUp()
+        super(IntegrationTestCase, self).setUp()
         self.portal = self.layer['portal']
         testing.setRoles(self.portal, testing.TEST_USER_ID, ['Manager'])
         self.portal.invokeFactory('Folder', 'test-folder')
