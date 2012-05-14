@@ -4,20 +4,21 @@ from zope import interface
 from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
 from Products.CMFCore.interfaces import IFolderish
-import pprint
 
 from plone.indexer import indexer
 
-import logging
+import logging  # @UnresolvedImport
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.app.workflow.browser.sharing import STICKY
 logger = logging.getLogger('collective.localrolesdatatables')
+
 
 @indexer(interface.Interface)
 def hasLocalRoles(obj):
     if hasattr(obj, '__ac_local_roles__'):
         roles = getattr(obj, '__ac_local_roles__')
-        return len(roles)>1
+        return len(roles) > 1
+
 
 class CatalogLocalRolesView(BrowserView):
     """View to display localroles"""
@@ -28,9 +29,8 @@ class CatalogLocalRolesView(BrowserView):
         self.context = context
         self.request = request
         self._catalog = None
-        self.request.set('disable_plone.leftcolumn',1)
-        self.request.set('disable_plone.rightcolumn',1)
-
+        self.request.set('disable_plone.leftcolumn', 1)
+        self.request.set('disable_plone.rightcolumn', 1)
 
     def roles(self):
         """Return list of roles"""
@@ -60,10 +60,10 @@ class CatalogLocalRolesView(BrowserView):
         """extract role_settings mapping for every contents"""
         t1 = time()
 
-        results={}
+        results = {}
         context_path = '/'.join(self.context.getPhysicalPath())
-        query = {'Language':'all',
-                 'hasLocalRoles':True,
+        query = {'Language': 'all',
+                 'hasLocalRoles': True,
                  'path': context_path}
         brains = self.catalog()(**query)
         logger.info(len(brains))
@@ -74,7 +74,7 @@ class CatalogLocalRolesView(BrowserView):
                                           'title': ob.Title()}
 
         t2 = time()
-        logger.info(t2-t1)
+        logger.info(t2 - t1)
 
         return results
 
@@ -84,7 +84,6 @@ class CatalogLocalRolesView(BrowserView):
         return self._catalog
 
     __call__ = ViewPageTemplateFile('localroles_view.pt')
-
 
 
 class ObjectLocalRolesView(CatalogLocalRolesView):
@@ -97,23 +96,23 @@ class ObjectLocalRolesView(CatalogLocalRolesView):
 
         sharing_view = component.getMultiAdapter((context, self.request),
                                                  name="sharing")
-        role_settings = sharing_view.role_settings() #a list of dict
+        role_settings = sharing_view.role_settings()  # a list of dict
         localroles = self.filter_localroles(role_settings)
 
         if localroles:
-            results[context.absolute_url()] = {'localroles':localroles,
+            results[context.absolute_url()] = {'localroles': localroles,
                                                'title': context.Title()}
 
         if IFolderish.providedBy(context):
-            for id, item in context.contentItems():
+            for iid, item in context.contentItems():  # @UnusedVariable
                 self.localroles(item, results)
 
     def role_settings(self):
         """extract role_settings mapping for every contents"""
         t1 = time()
-        results={}
+        results = {}
         self.localroles(self.context, results)
         t2 = time()
         logger.info(len(results))
-        logger.info(t2-t1)
+        logger.info(t2 - t1)
         return results
