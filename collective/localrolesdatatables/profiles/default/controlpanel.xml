@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<object
+    name="portal_controlpanel"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n:domain="collective.localrolesdatatables">
+
+    <configlet
+        title="Audit roles"
+        action_id="collective.localrolesdatatables"
+        appId="collective.localrolesdatatables"
+        category="Products"
+        condition_expr=""
+        icon_expr=""
+        url_expr="string:${portal_url}/@@localrolesdatatables_catalog_view"
+        visible="True"
+        i18n:attributes="title">
+            <permission>Manage portal</permission>
+ </configlet>
+
+</object>

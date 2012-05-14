@@ -7,17 +7,21 @@ site. It has been created to build reports of security settings.
 How to install
 ==============
 
-As any addons, so please follow official documentation_. By the way this
-addon add an index to the portal_catalog, so you have to reindex this index.
-To achieve this go to http://mysite/portal_catalog/manage_catalogIndexes
-check the 'hasLocalRoles' index and push Reindex button.
+As any addons, so please follow official documentation_.
 
 How to use
 ==========
 
-Once the addon is installed you have a @@localrolesdatatables_catalog_view
-view where you can see every localroles of every content types. Because it use
-jquery datatbles you can search and filter per content / users.
+Once the addon is installed you have a controlpanel that provide a direct
+access to @@localrolesdatatables_catalog_view view where you can see every 
+localroles of every content types. Because it use jquery datatbles you can
+search and filter per content / users / content type.
+
+This view use the portal_catalog, and build a query using the context path. So
+if you want to have a report with only a folder (for an extranet) you just have
+to call the view on this folder::
+
+  mysite/extranet/@@localrolesdatatables_catalog_view
 
 Credits
 =======

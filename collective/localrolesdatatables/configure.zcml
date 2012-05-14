@@ -19,6 +19,12 @@
       description='Extension profile'
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
+  <genericsetup:importStep
+        name="collective.localrolesdatatables"
+        title="collective.localrolesdatatables reindex hasLocalRoles"
+        description=""
+        handler="collective.localrolesdatatables.setuphandlers.setupVarious" />
+        />
   <include package=".upgrades" />
 
   <browser:page
@@ -34,4 +40,5 @@
       permission="cmf.ManagePortal"
       />
   <adapter factory=".localroles_view.hasLocalRoles"   name="hasLocalRoles" />
+
 </configure>
