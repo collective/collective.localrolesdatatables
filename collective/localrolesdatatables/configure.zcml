@@ -8,6 +8,8 @@
     xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="collective.localrolesdatatables">
 
+  <include package="Products.CMFCore" file="permissions.zcml"/>
+
   <i18n:registerTranslations directory="locales" />
 
   <genericsetup:registerProfile
@@ -23,13 +25,13 @@
       for="*"
       name="localrolesdatatables_catalog_view"
       class=".localroles_view.CatalogLocalRolesView"
-      permission="zope2.View"
+      permission="cmf.ManagePortal"
       />
   <browser:page
       for="*"
       name="localrolesdatatables_object_view"
       class=".localroles_view.ObjectLocalRolesView"
-      permission="zope2.View"
+      permission="cmf.ManagePortal"
       />
   <adapter factory=".localroles_view.hasLocalRoles"   name="hasLocalRoles" />
 </configure>
