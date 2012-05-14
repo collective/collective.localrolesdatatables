@@ -4,6 +4,12 @@ Introduction
 This addon display a datatables_ showing @@sharing content of all content in the
 site. It has been created to build reports of security settings.
 
+TODO
+----
+
+* controlpanel (Audit roles)
+* rendre privé (non accessible anonymous)
+* ajouter la colonne type et sortir du design plone
 
 How to use
 ==========
