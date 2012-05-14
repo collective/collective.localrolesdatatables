@@ -71,7 +71,8 @@ class CatalogLocalRolesView(BrowserView):
         for brain in brains:
             ob = brain.getObject()
             results[ob.absolute_url()] = {'localroles': self.localroles(ob),
-                                          'title': ob.Title()}
+                                          'title': ob.Title(),
+                                          'type': ob.portal_type}
 
         t2 = time()
         logger.info(t2 - t1)
@@ -101,7 +102,8 @@ class ObjectLocalRolesView(CatalogLocalRolesView):
 
         if localroles:
             results[context.absolute_url()] = {'localroles': localroles,
-                                               'title': context.Title()}
+                                               'title': context.Title(),
+                                               'type': context.portal_type}
 
         if IFolderish.providedBy(context):
             for iid, item in context.contentItems():  # @UnusedVariable

@@ -7,7 +7,7 @@
     i18n:domain="collective.googledocsviewer">
 <body>
 
-<div metal:fill-slot="content-core">
+<div metal:fill-slot="main">
 
 <table id="localroles-datatables"
        tal:define="item_role_settings view/role_settings;
@@ -15,6 +15,7 @@
     <thead>
         <tr>
            <th>Title <input type="text" id="title-filtering" name="title-filtering"/></th>
+           <th>Type <input type="text" id="type-filtering" name="type-filtering"/></th>
            <th>Name <input type="text" id="name-filtering" name="name-filtering"/></th>
            <th tal:repeat="role available_roles"><span tal:content="role/title">role</span></th>
         </tr>
@@ -28,6 +29,7 @@
                                sticky python:entry['id'] in view.STICKY">
         <tr>
             <td><a tal:attributes="href item_url" tal:content="python:item_role_settings[item_url]['title']">link</a></td>
+            <td><span tal:content="python:item_role_settings[item_url]['type']">type</span></td>
             <td>
                             <span tal:condition="is_group">group - </span>
                             <span tal:condition="not:is_group">user - </span>
