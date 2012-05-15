@@ -9,6 +9,7 @@
     i18n_domain="collective.localrolesdatatables">
 
   <include package="Products.CMFCore" file="permissions.zcml"/>
+  <include package="collective.js.datatables"/>
 
   <i18n:registerTranslations directory="locales" />
 
