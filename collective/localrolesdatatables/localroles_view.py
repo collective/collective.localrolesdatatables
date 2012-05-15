@@ -56,27 +56,35 @@ class CatalogLocalRolesView(BrowserView):
 
         return localroles
 
-    def role_settings(self):
-        """extract role_settings mapping for every contents"""
-        t1 = time()
-
-        results = {}
+    def buildQuery(self):
         context_path = '/'.join(self.context.getPhysicalPath())
         query = {'Language': 'all',
                  'hasLocalRoles': True,
                  'path': context_path}
+        return query
+
+    def role_settings(self):
+        """extract role_settings mapping for every contents"""
+        t1 = time()
+
+        query = self.buildQuery()
         brains = self.catalog()(**query)
         logger.info(len(brains))
 
+        results = self.role_settings_from_brains(brains)
+
+        t2 = time()
+        logger.info(t2 - t1)
+
+        return results
+
+    def role_settings_from_brains(self, brains):
+        results = {}
         for brain in brains:
             ob = brain.getObject()
             results[ob.absolute_url()] = {'localroles': self.localroles(ob),
                                           'title': ob.Title(),
                                           'type': ob.portal_type}
-
-        t2 = time()
-        logger.info(t2 - t1)
-
         return results
 
     def catalog(self):

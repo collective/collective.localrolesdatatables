@@ -11,6 +11,10 @@ class TestSetup(base.IntegrationTestCase):
         catalog = self.portal.portal_catalog
         self.assertTrue('hasLocalRoles' in catalog.indexes())
 
+    def test_datatables_installed(self):
+        qi = self.portal.portal_quickinstaller
+        self.assertTrue(qi.isProductInstalled('collective.js.datatables'))
+
 
 def test_suite():
     return unittest.defaultTestLoader.loadTestsFromName(__name__)
