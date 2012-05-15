@@ -4,7 +4,7 @@ version = '1.0a3.dev0'
 
 setup(name='collective.localrolesdatatables',
       version=version,
-      description="Addon for Plone",
+      description="View / export localroles of all or parts of the site",
       long_description=open("README.rst").read() + "\n" +
                        open("CHANGES.txt").read(),
       # Get more strings from
