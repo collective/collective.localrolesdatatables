@@ -12,3 +12,7 @@ def upgrade_1000_to_1001(context):
                                    'collective.localrolesdatatables',
                                    run_dependencies=False,
                                    purge_old=False)
+
+    qi = getToolByName(context, 'portal_quickinstaller')
+    if not qi.isProductInstalled('collective.js.datatables'):
+        qi.installProduct('collective.js.datatables')

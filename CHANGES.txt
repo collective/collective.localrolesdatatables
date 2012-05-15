@@ -4,8 +4,8 @@ Changelog
 1.0a3 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- Add upgrade step.
+- Install collective.js.datatables as a dependency
 
 1.0a2 (2012-05-15)
 ------------------

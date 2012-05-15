@@ -56,8 +56,6 @@
         </tal:items>
     </tbody>
 </table>
-<link rel="stylesheet" type="text/css" media="screen" href="++resource++jquery.datatables/media/css/jquery.dataTables.css">
-<script type="text/javascript" src="++resource++jquery.datatables.js"></script>
 <script type="text/javascript" src="++resource++jquery.datatables/extras/TableTools/media/js/ZeroClipboard.js"></script>
 <script type="text/javascript" src="++resource++jquery.datatables/extras/TableTools/media/js/TableTools.js"></script>
 <script type="text/javascript">
