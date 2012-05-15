@@ -71,8 +71,11 @@ var oTable = $('#localroles-datatables').dataTable({
 $("#title-filtering").keyup( function () {
   oTable.fnFilter( this.value, 0 );
 });
-$("#name-filtering").keyup( function () {
+$("#type-filtering").keyup( function () {
   oTable.fnFilter( this.value, 1 );
+});
+$("#name-filtering").keyup( function () {
+  oTable.fnFilter( this.value, 2 );
 });
 </script>
 </div>
