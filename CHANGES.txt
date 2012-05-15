@@ -1,0 +1,14 @@
+Changelog
+=========
+
+1.0a2 (unreleased)
+------------------
+
+- Add import step to reindex hasLocalRoles index
+- Fix permission of the @@localrolesdatatables_catalog_view to cmf.ManagePortal
+- Add type column to the datatable
+
+1.0a1 (2012-05-11)
+------------------
+
+- Initial release
