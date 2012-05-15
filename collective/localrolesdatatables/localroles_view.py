@@ -7,7 +7,7 @@ from Products.CMFCore.interfaces import IFolderish
 
 from plone.indexer import indexer
 
-import logging  # @UnresolvedImport
+import logging
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.app.workflow.browser.sharing import STICKY
 logger = logging.getLogger('collective.localrolesdatatables')

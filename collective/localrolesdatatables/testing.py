@@ -1,6 +1,6 @@
-from plone.app.testing import PloneWithPackageLayer  # @UnresolvedImport
-from plone.app.testing import IntegrationTesting  # @UnresolvedImport
-from plone.app.testing import FunctionalTesting  # @UnresolvedImport
+from plone.app.testing import PloneWithPackageLayer
+from plone.app.testing import IntegrationTesting
+from plone.app.testing import FunctionalTesting
 
 import collective.localrolesdatatables
 
