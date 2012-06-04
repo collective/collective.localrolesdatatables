@@ -4,7 +4,7 @@ Changelog
 1.0a4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Remove spaces in the template so PDF and CSV export looks nice
 
 
 1.0a3 (2012-05-15)
