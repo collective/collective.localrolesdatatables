@@ -1,3 +1,6 @@
+.project
+.pydevproject
+.settings
 *.mo
 *.egg-info
 *.egg

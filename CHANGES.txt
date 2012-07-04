@@ -4,7 +4,7 @@ Changelog
 1.0a5 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Remove spaces between "user - " and the username. make the CSV & PDF nice
 
 
 1.0a4 (2012-06-15)

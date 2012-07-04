@@ -27,24 +27,19 @@
                                disabled entry/disabled | python:False;
                                oddrow repeat/entry/odd;
                                sticky python:entry['id'] in view.STICKY">
-        <tr>
+           <tr>
             <td><a tal:attributes="href item_url" tal:content="python:item_role_settings[item_url]['title']">link</a></td>
             <td><span tal:content="python:item_role_settings[item_url]['type']">type</span></td>
-            <td><span tal:condition="is_group">group - </span><span tal:condition="not:is_group">user - </span>
-<tal:sticky condition="sticky"><span tal:replace="entry/title" /></tal:sticky>
-<tal:nonsticky condition="not:sticky"><span tal:replace="entry/id" /></tal:nonsticky></td>
-            <td tal:repeat="role available_roles"><tal:block define="entry_role python:entry['roles'][role['id']]">
-<span tal:condition="python:entry_role == True">1</span>
-<span tal:condition="python:entry_role == False">0</span>
-<span tal:condition="python:entry_role == 'global'">global</span>
-<span tal:condition="python:entry_role == 'acquired'">acquired</span>
-<span tal:condition="disabled">disabled</span>
-                </tal:block>
-            </td>
-        </tr>
-        </tal:def>
+            <td><span tal:condition="is_group">group - </span><span tal:condition="not:is_group">user - </span><tal:sticky condition="sticky"><span tal:replace="entry/title" /></tal:sticky><tal:nonsticky condition="not:sticky"><span tal:replace="entry/id" /></tal:nonsticky></td>
+            <td tal:repeat="role available_roles"><tal:block define="entry_role python:entry['roles'][role['id']]"><span
+                tal:condition="python:entry_role == True">1</span><span tal:condition="python:entry_role == False">0</span><span
+                tal:condition="python:entry_role == 'global'">global</span><span
+                tal:condition="python:entry_role == 'acquired'">acquired</span><span
+                tal:condition="disabled">disabled</span></tal:block></td>
+           </tr>
+          </tal:def>
         </tal:roles>
-        </tal:items>
+      </tal:items>
     </tbody>
 </table>
 <script type="text/javascript" src="++resource++jquery.datatables/extras/TableTools/media/js/ZeroClipboard.js"></script>
