@@ -1,8 +1,8 @@
 Changelog
 =========
 
-1.1 (unreleased)
-----------------
+1.0.1 (2012-08-08)
+------------------
 
 - Register TableTools JS and CSS in Plone resource registries
 - Refactor the view using an update method
