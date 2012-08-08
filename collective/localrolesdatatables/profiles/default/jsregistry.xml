@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<object name="portal_javascripts">
+
+  <javascript
+      id="++resource++jquery.datatables/extras/TableTools/media/js/ZeroClipboard.js"/>
+
+  <javascript
+      id="++resource++jquery.datatables/extras/TableTools/media/js/TableTools.js"/>
+
+</object>

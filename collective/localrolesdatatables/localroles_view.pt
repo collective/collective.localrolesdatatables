@@ -8,7 +8,7 @@
 <body>
 
 <div metal:fill-slot="main">
-
+<style type="text/css">.clear{clear:both;}</style>
 <table id="localroles-datatables"
        tal:define="item_role_settings view/role_settings;
                    available_roles view/roles;">
@@ -42,26 +42,7 @@
       </tal:items>
     </tbody>
 </table>
-<script type="text/javascript" src="++resource++jquery.datatables/extras/TableTools/media/js/ZeroClipboard.js"></script>
-<script type="text/javascript" src="++resource++jquery.datatables/extras/TableTools/media/js/TableTools.js"></script>
-<script type="text/javascript">
-var oTable = $('#localroles-datatables').dataTable({
-  "oLanguage": {"sSearch": "Search all columns:"},
-  "iDisplayLength": 100,
-  "aLengthMenu": [[100, 200, 500, -1],[100, 200, 500, "All"]],
-  "sDom": 'T<"clear">lfrtip',
-  "oTableTools": {"sSwfPath": "++resource++jquery.datatables/extras/TableTools/media/swf/copy_csv_xls_pdf.swf"}
-});
-$("#title-filtering").keyup( function () {
-  oTable.fnFilter( this.value, 0 );
-});
-$("#type-filtering").keyup( function () {
-  oTable.fnFilter( this.value, 1 );
-});
-$("#name-filtering").keyup( function () {
-  oTable.fnFilter( this.value, 2 );
-});
-</script>
+<script type="text/javascript" tal:attributes="src string:${view/portal_url}/++resource++localroles_view.js"></script>
 </div>
 </body>
 </html>

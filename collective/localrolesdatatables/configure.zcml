@@ -26,8 +26,12 @@
         description=""
         handler="collective.localrolesdatatables.setuphandlers.setupVarious" />
         />
-  <include package=".upgrades" />
+  <include file="upgrades.zcml" />
 
+  <browser:resource
+      name="localroles_view.js"
+      file="localroles_view.js"
+      />
   <browser:page
       for="*"
       name="localrolesdatatables_catalog_view"

@@ -1,3 +1,4 @@
+from Products.CMFCore.utils import getToolByName
 
 
 def setupVarious(context):
@@ -6,5 +7,5 @@ def setupVarious(context):
         # Not your add-on
         return
     portal = context.getSite()
-    catalog = portal.portal_catalog
+    catalog = getToolByName(portal, 'portal_catalog')
     catalog.reindexIndex('hasLocalRoles', portal.REQUEST)

@@ -4,8 +4,9 @@ Changelog
 1.1 (unreleased)
 ----------------
 
-- Nothing changed yet.
-
+- Register TableTools JS and CSS in Plone resource registries
+- Refactor the view using an update method
+- Add olanguage datatables option to let the table be localized
 
 1.0 (2012-07-04)
 ----------------

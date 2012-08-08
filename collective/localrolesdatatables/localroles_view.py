@@ -1,5 +1,6 @@
 from time import time
 from zope import component
+from zope.component import getMultiAdapter
 from zope import interface
 from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
@@ -24,23 +25,41 @@ class CatalogLocalRolesView(BrowserView):
     """View to display localroles"""
 
     STICKY = STICKY
+    index = ViewPageTemplateFile('localroles_view.pt')
 
     def __init__(self, context, request):
         self.context = context
         self.request = request
-        self._catalog = None
+        self.portal_catalog = None
+        self.portal_state = None
+        self.portal_url = None
+        self.sharing_view = None
+
+    def __call__(self):
+        self.update()
+        return self.index()
+
+    def update(self):
         self.request.set('disable_plone.leftcolumn', 1)
         self.request.set('disable_plone.rightcolumn', 1)
+        if self.portal_state is None:
+            self.portal_state = getMultiAdapter((self.context, self.request),
+                                                 name="plone_portal_state")
+        if self.portal_url is None:
+            self.portal_url = self.portal_state.portal_url
+        if self.sharing_view is None:
+            self.sharing_view = getMultiAdapter((self.context, self.request),
+                                                 name="sharing")
+        if self.portal_catalog is None:
+            self.portal_catalog = getToolByName(self.context, 'portal_catalog')
 
     def roles(self):
         """Return list of roles"""
-        sharing_view = component.getMultiAdapter((self.context, self.request),
-                                                 name="sharing")
-        return sharing_view.roles()
+        return self.sharing_view.roles()
 
     def localroles(self, context):
-        sharing_view = component.getMultiAdapter((context, self.request),
-                                                 name="sharing")
+        sharing_view = getMultiAdapter((context, self.request),
+                                      name="sharing")
         role_settings = sharing_view.role_settings()
 
         return self.filter_localroles(role_settings)
@@ -68,7 +87,7 @@ class CatalogLocalRolesView(BrowserView):
         t1 = time()
 
         query = self.buildQuery()
-        brains = self.catalog()(**query)
+        brains = self.portal_catalog(**query)
         logger.info(len(brains))
 
         results = self.role_settings_from_brains(brains)
@@ -87,13 +106,6 @@ class CatalogLocalRolesView(BrowserView):
                                           'type': ob.portal_type}
         return results
 
-    def catalog(self):
-        if self._catalog is None:
-            self._catalog = getToolByName(self.context, 'portal_catalog')
-        return self._catalog
-
-    __call__ = ViewPageTemplateFile('localroles_view.pt')
-
 
 class ObjectLocalRolesView(CatalogLocalRolesView):
     """View to display localroles"""
@@ -103,9 +115,7 @@ class ObjectLocalRolesView(CatalogLocalRolesView):
         if results is None:
             results = {}
 
-        sharing_view = component.getMultiAdapter((context, self.request),
-                                                 name="sharing")
-        role_settings = sharing_view.role_settings()  # a list of dict
+        role_settings = self.sharing_view.role_settings()  # a list of dict
         localroles = self.filter_localroles(role_settings)
 
         if localroles:
