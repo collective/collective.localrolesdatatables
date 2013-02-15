@@ -42,6 +42,7 @@ class CatalogLocalRolesView(BrowserView):
     def update(self):
         self.request.set('disable_plone.leftcolumn', 1)
         self.request.set('disable_plone.rightcolumn', 1)
+        self.request.set('disable_border', True)
         if self.portal_state is None:
             self.portal_state = getMultiAdapter((self.context, self.request),
                                                  name="plone_portal_state")
@@ -88,13 +89,12 @@ class CatalogLocalRolesView(BrowserView):
 
         query = self.buildQuery()
         brains = self.portal_catalog(**query)
-        logger.info(len(brains))
+        logger.debug(len(brains))
 
         results = self.role_settings_from_brains(brains)
 
         t2 = time()
-        logger.info(t2 - t1)
-
+        logger.debug(t2 - t1)
         return results
 
     def role_settings_from_brains(self, brains):

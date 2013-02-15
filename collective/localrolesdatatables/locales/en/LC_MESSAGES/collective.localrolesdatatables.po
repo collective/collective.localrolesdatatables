@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.localrolesdatatables\n"
-"POT-Creation-Date: 2010-11-10 11:05+0000\n"
+"POT-Creation-Date: 2013-02-15 08:19+0000\n"
 "PO-Revision-Date: 2008-02-04 18:00+0000\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
@@ -14,3 +14,52 @@ msgstr ""
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.localrolesdatatables\n"
+
+#: ./profiles/default/controlpanel.xml
+msgid "Audit roles"
+msgstr ""
+
+#: ./localroles_view.pt:12
+msgid "CSV"
+msgstr ""
+
+#: ./localroles_view.pt:12
+msgid "Copy"
+msgstr ""
+
+#: ./localroles_view.pt:12
+msgid "Excel"
+msgstr ""
+
+#: ./localroles_view.pt:25
+msgid "Name"
+msgstr ""
+
+#: ./localroles_view.pt:12
+msgid "PDF"
+msgstr ""
+
+#: ./localroles_view.pt:12
+msgid "Print"
+msgstr ""
+
+#: ./localroles_view.pt:23
+msgid "Title"
+msgstr ""
+
+#: ./localroles_view.pt:24
+msgid "Type"
+msgstr ""
+
+#: ./localroles_view.pt:42
+msgid "acquired"
+msgstr ""
+
+#: ./localroles_view.pt:43
+msgid "disabled"
+msgstr ""
+
+#: ./localroles_view.pt:41
+msgid "global"
+msgstr ""
+
