@@ -6,6 +6,9 @@ Changelog
 
 - Fixed i18n support [keul]
 - Added italian translation [keul]
+- Added ``hasLocalRoles`` index to the ``_cmf_security_indexes`` list, so
+  the index is updated when security settings is updated [keul]
+- Disabled the CSV button as its output is the same of the Excel ones [keul]
 
 1.0.1 (2012-08-08)
 ------------------
