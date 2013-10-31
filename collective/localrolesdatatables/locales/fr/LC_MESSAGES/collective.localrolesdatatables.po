@@ -19,49 +19,49 @@ msgstr ""
 
 #: ./profiles/default/controlpanel.xml
 msgid "Audit roles"
-msgstr ""
+msgstr "Audit des rôles"
 
 #: ./localroles_view.pt:12
 msgid "CSV"
-msgstr ""
+msgstr "CSV"
 
 #: ./localroles_view.pt:12
 msgid "Copy"
-msgstr ""
+msgstr "Copier"
 
 #: ./localroles_view.pt:12
 msgid "Excel"
-msgstr ""
+msgstr "Excel"
 
 #: ./localroles_view.pt:25
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 #: ./localroles_view.pt:12
 msgid "PDF"
-msgstr ""
+msgstr "PDF"
 
 #: ./localroles_view.pt:12
 msgid "Print"
-msgstr ""
+msgstr "Imprimer"
 
 #: ./localroles_view.pt:23
 msgid "Title"
-msgstr ""
+msgstr "Titre"
 
 #: ./localroles_view.pt:24
 msgid "Type"
-msgstr ""
+msgstr "Type"
 
 #: ./localroles_view.pt:42
 msgid "acquired"
-msgstr ""
+msgstr "acquis"
 
 #: ./localroles_view.pt:43
 msgid "disabled"
-msgstr ""
+msgstr "désactivé"
 
 #: ./localroles_view.pt:41
 msgid "global"
-msgstr ""
+msgstr "global"
 

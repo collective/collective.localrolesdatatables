@@ -11,11 +11,11 @@
 <style type="text/css">.clear{clear:both;}</style>
 <table id="localroles-datatables"
        data-label-copy="Copy"
-	   data-label-csv="CSV"
-	   data-label-excel="Excel"
-	   data-label-pdf="PDF"
-	   data-label-print="Print"
-	   i18n:attributes="data-label-copy; data-label-csv; data-label-excel; data-label-pdf; data-label-print"
+       data-label-csv="CSV"
+       data-label-excel="Excel"
+       data-label-pdf="PDF"
+       data-label-print="Print"
+       i18n:attributes="data-label-copy; data-label-csv; data-label-excel; data-label-pdf; data-label-print"
        tal:define="item_role_settings view/role_settings;
                    available_roles view/roles;">
     <thead>
