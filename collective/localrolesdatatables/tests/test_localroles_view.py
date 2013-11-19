@@ -10,8 +10,9 @@ class TestCatalogLocalRolesView(base.IntegrationTestCase):
     def setUp(self):
         super(TestCatalogLocalRolesView, self).setUp()
         from collective.localrolesdatatables import localroles_view
-        self.view = localroles_view.CatalogLocalRolesView(self.folder,
-                                                      self.layer['request'])
+        self.view = localroles_view.CatalogLocalRolesView(
+            self.folder, self.layer['request']
+        )
         self.view.update()
         #TODO: add localroles and add tests
 

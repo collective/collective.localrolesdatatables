@@ -1,5 +1,4 @@
 from time import time
-from zope import component
 from zope.component import getMultiAdapter
 from zope import interface
 from Products.Five.browser import BrowserView
@@ -44,13 +43,15 @@ class CatalogLocalRolesView(BrowserView):
         self.request.set('disable_plone.rightcolumn', 1)
         self.request.set('disable_border', True)
         if self.portal_state is None:
-            self.portal_state = getMultiAdapter((self.context, self.request),
-                                                 name="plone_portal_state")
+            self.portal_state = getMultiAdapter(
+                (self.context, self.request), name="plone_portal_state"
+            )
         if self.portal_url is None:
             self.portal_url = self.portal_state.portal_url
         if self.sharing_view is None:
-            self.sharing_view = getMultiAdapter((self.context, self.request),
-                                                 name="sharing")
+            self.sharing_view = getMultiAdapter(
+                (self.context, self.request), name="sharing"
+            )
         if self.portal_catalog is None:
             self.portal_catalog = getToolByName(self.context, 'portal_catalog')
 
@@ -59,8 +60,9 @@ class CatalogLocalRolesView(BrowserView):
         return self.sharing_view.roles()
 
     def localroles(self, context):
-        sharing_view = getMultiAdapter((context, self.request),
-                                      name="sharing")
+        sharing_view = getMultiAdapter(
+            (context, self.request), name="sharing"
+        )
         role_settings = sharing_view.role_settings()
 
         return self.filter_localroles(role_settings)
